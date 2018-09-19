@@ -29,33 +29,34 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface MyComponent {
-      'first': string;
-      'last': string;
+    interface MyRating {
+      'maxValue': number;
+      'value': number;
     }
   }
 
-  interface HTMLMyComponentElement extends StencilComponents.MyComponent, HTMLStencilElement {}
+  interface HTMLMyRatingElement extends StencilComponents.MyRating, HTMLStencilElement {}
 
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLMyRatingElement: {
+    prototype: HTMLMyRatingElement;
+    new (): HTMLMyRatingElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'my-rating': HTMLMyRatingElement;
   }
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'my-rating': HTMLMyRatingElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'my-component': JSXElements.MyComponentAttributes;
+      'my-rating': JSXElements.MyRatingAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      'first'?: string;
-      'last'?: string;
+    export interface MyRatingAttributes extends HTMLAttributes {
+      'maxValue'?: number;
+      'onOnRatingUpdated'?: (event: CustomEvent) => void;
+      'value'?: number;
     }
   }
 }

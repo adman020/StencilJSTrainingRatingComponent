@@ -4,12 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
-  <script src="/build/mycomponent.js"></script>
+  <script src="/build/my-rating.js"></script>
+
+  <script>
+
+      // example of getting rating out of stencil component
+      window.onload = function () {
+        let rating = document.getElementById("myRatingComponent");
+        rating.addEventListener("onRatingUpdated", function (event) {
+          alert(event.detail.value);
+        })
+      };
+    </script>
+
 
 </head>
 <body>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <my-rating id="myRatingComponent" max-value="8" value="2"></my-rating>
 
 </body>
 </html>
